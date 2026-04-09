@@ -38,7 +38,7 @@ A microservice-based application built with **Spring Boot 3** and **Spring Cloud
 
 ## Prerequisites
 
-- Java 21+
+- Java 17+
 - Maven 3.9+
 - Docker & Docker Compose
 
