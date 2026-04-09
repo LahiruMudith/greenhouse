@@ -38,7 +38,7 @@ eureka:
     prefer-ip-address: true
 
 jwt:
-  secret: "agms-secret-key-for-jwt-signing-must-be-at-least-256-bits"
+  secret: "pP4WfSgQSWKD6GTfPyx5VCWHzicXNNGSPAKUsqaEHz3"
 
 management:
   endpoints:

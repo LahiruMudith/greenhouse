@@ -1,11 +1,11 @@
-version: '3.8'
+#version: '3.8'
 
 services:
   mysql:
     image: mysql:8.0
     container_name: agms-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: 1212
       MYSQL_DATABASE: zone_db
     ports:
       - "3306:3306"

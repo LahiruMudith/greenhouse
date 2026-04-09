@@ -9,7 +9,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/zone_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
     username: root
-    password: root
+    password: 1212
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -28,9 +28,9 @@ eureka:
 
 iot:
   api:
-    base-url: http://104.211.95.241:8080/api
-    username: admin
-    password: admin
+    base-url: http://localhost:9090/api
+    username: lahiru
+    password: 123456
 
 management:
   endpoints:

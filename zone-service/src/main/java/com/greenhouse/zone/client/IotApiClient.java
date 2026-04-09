@@ -16,13 +16,13 @@ public class IotApiClient {
 
     private static final Logger log = LoggerFactory.getLogger(IotApiClient.class);
 
-    @Value("${iot.api.base-url:http://104.211.95.241:8080/api}")
+    @Value("${iot.api.base-url:http://localhost:9090/api}")
     private String baseUrl;
 
-    @Value("${iot.api.username:admin}")
+    @Value("${iot.api.username:lahiru}")
     private String username;
 
-    @Value("${iot.api.password:admin}")
+    @Value("${iot.api.password:123456}")
     private String password;
 
     private final RestTemplate restTemplate = new RestTemplate();

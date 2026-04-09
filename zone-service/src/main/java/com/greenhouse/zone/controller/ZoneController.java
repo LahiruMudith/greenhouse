@@ -21,11 +21,14 @@ public class ZoneController {
 
     @PostMapping
     public ResponseEntity<Zone> createZone(@Valid @RequestBody Zone zone) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(zoneService.createZone(zone));
+        System.out.println("Creating new zone: " + zone);
+        Zone createdZone = zoneService.createZone(zone);
+        System.out.println("Successfully created zone with ID: " + createdZone.getId());
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdZone);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Zone> getZone(@PathVariable Long id) {
+    public ResponseEntity<Zone> getZone(@PathVariable("id") Long id) {
         return ResponseEntity.ok(zoneService.getZone(id));
     }
 
@@ -35,12 +38,12 @@ public class ZoneController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Zone> updateZone(@PathVariable Long id, @Valid @RequestBody Zone zone) {
+    public ResponseEntity<Zone> updateZone(@PathVariable("id") Long id, @Valid @RequestBody Zone zone) {
         return ResponseEntity.ok(zoneService.updateZone(id, zone));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteZone(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteZone(@PathVariable("id") Long id) {
         zoneService.deleteZone(id);
         return ResponseEntity.noContent().build();
     }

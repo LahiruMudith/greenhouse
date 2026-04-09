@@ -16,13 +16,13 @@ public class IotApiClient {
 
     private static final Logger log = LoggerFactory.getLogger(IotApiClient.class);
 
-    @Value("${iot.api.base-url:http://104.211.95.241:8080/api}")
+    @Value("${iot.api.base-url:http://localhost:9090/api}")
     private String baseUrl;
 
-    @Value("${iot.api.username:admin}")
+    @Value("${iot.api.username:lahiru}")
     private String username;
 
-    @Value("${iot.api.password:admin}")
+    @Value("${iot.api.password:123456}")
     private String password;
 
     private final RestTemplate restTemplate = new RestTemplate();
@@ -34,7 +34,7 @@ public class IotApiClient {
             ResponseEntity<Map> response = restTemplate.postForEntity(
                     baseUrl + "/auth/login", body, Map.class);
             if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
-                accessToken.set((String) response.getBody().get("token"));
+                accessToken.set((String) response.getBody().get("accessToken"));
                 log.info("IoT API login successful");
             }
         } catch (Exception e) {
@@ -51,7 +51,7 @@ public class IotApiClient {
             headers.setBearerAuth(accessToken.get());
             HttpEntity<Void> entity = new HttpEntity<>(headers);
             ResponseEntity<Map> response = restTemplate.exchange(
-                    baseUrl + "/devices/" + deviceId + "/telemetry",
+                    baseUrl + "/devices/telemetry/" + deviceId,
                     HttpMethod.GET, entity, Map.class);
             if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
                 Map<String, Object> data = response.getBody();
