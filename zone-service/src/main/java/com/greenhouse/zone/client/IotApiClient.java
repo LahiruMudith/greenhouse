@@ -34,7 +34,7 @@ public class IotApiClient {
             ResponseEntity<Map> response = restTemplate.postForEntity(
                     baseUrl + "/auth/login", body, Map.class);
             if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
-                accessToken.set((String) response.getBody().get("token"));
+                accessToken.set((String) response.getBody().get("accessToken"));
                 log.info("IoT API login successful");
             }
         } catch (Exception e) {
