@@ -29,6 +29,9 @@ public class CropController {
     public ResponseEntity<Crop> updateStatus(@PathVariable Long id,
                                               @RequestBody Map<String, String> body) {
         String status = body.get("status");
+        if (status == null || status.isBlank()) {
+            return ResponseEntity.badRequest().build();
+        }
         return ResponseEntity.ok(cropService.updateStatus(id, status));
     }
 
