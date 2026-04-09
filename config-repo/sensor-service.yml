@@ -1,0 +1,8 @@
+server:
+  port: 8082
+
+iot:
+  api:
+    base-url: http://104.211.95.241:8080/api
+    username: admin
+    password: admin
