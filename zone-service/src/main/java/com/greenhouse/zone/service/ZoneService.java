@@ -50,6 +50,7 @@ public class ZoneService {
     }
 
     public void deleteZone(Long id) {
+        getZone(id); // validates existence; throws if not found
         zoneRepository.deleteById(id);
     }
 }

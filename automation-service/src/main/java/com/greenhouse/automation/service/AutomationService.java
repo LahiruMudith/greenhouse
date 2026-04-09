@@ -63,7 +63,10 @@ public class AutomationService {
     }
 
     private Long parseZoneId(String zoneId) {
-        try { return Long.parseLong(zoneId); } catch (Exception e) { return 0L; }
+        if (zoneId == null || zoneId.isBlank()) {
+            throw new IllegalArgumentException("zoneId is null or blank");
+        }
+        return Long.parseLong(zoneId);
     }
 
     private Double parseDouble(Object val) {

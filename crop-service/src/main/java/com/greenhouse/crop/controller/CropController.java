@@ -26,11 +26,11 @@ public class CropController {
     }
 
     @PutMapping("/{id}/status")
-    public ResponseEntity<Crop> updateStatus(@PathVariable Long id,
+    public ResponseEntity<?> updateStatus(@PathVariable Long id,
                                               @RequestBody Map<String, String> body) {
         String status = body.get("status");
         if (status == null || status.isBlank()) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body(Map.of("error", "Request body must contain a non-blank 'status' field"));
         }
         return ResponseEntity.ok(cropService.updateStatus(id, status));
     }
